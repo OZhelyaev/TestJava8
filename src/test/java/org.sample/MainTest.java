@@ -2,6 +2,10 @@ package org.sample;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.sample.model.LanguageCard;
+import org.sample.service.CardsLoader;
+
+import java.util.List;
 
 
 /**
@@ -9,8 +13,13 @@ import org.junit.Test;
  */
 public class MainTest {
     @Test
-    public void mainMethodTest() throws Exception {
-      //  Assert.assertTrue(1==1);
+    public void cardsLoaderTest() throws Exception {
+        CardsLoader cardsLoader = CardsLoader.getInstance();
+        cardsLoader.setFilelName("card.csv");
+        List<LanguageCard> cards = cardsLoader.load();
+
+        Assert.assertNotNull(cards);
+        Assert.assertEquals(cards.get(0).getWord(), "Hello");
     }
 
 }
