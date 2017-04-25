@@ -20,8 +20,8 @@ public class CardsLoader {
     private static final Logger log = LogManager.getLogger(CardsLoader.class);
 
     private static final int FIRS_WORD = 0;
-    private static final int TRANSCRPTION = 1;
-    private static final int TRANS_WORDS = 2;
+    //private static final int TRANSCRPTION = 1;
+    private static final int TRANS_WORDS = 1;
 
     private static CardsLoader cardsLoader = null;
     private String filelName;
@@ -46,6 +46,7 @@ public class CardsLoader {
         String val;
         log.info("Reading");
         try {
+            //Stream<String> streamFromFiles = Files.lines(Paths.get("file.txt"))
             Iterable<CSVRecord> records = CSVFormat.DEFAULT.parse(reader);
             for (CSVRecord record: records) {
                 LanguageCard lCard = new LanguageCard();
@@ -53,9 +54,9 @@ public class CardsLoader {
                 lCard.setWord(val);
                 log.info("FIRS_WORD: " + val);
 
-                val = record.get(TRANSCRPTION);
-                lCard.setTranscrption(val);
-                log.info("TRANSCRPTION: " + val);
+//                val = record.get(TRANSCRPTION);
+//                lCard.setTranscrption(val);
+//                log.info("TRANSCRPTION: " + val);
 
                 val = record.get(TRANS_WORDS);
                 List<String> tWords = new ArrayList<>();
