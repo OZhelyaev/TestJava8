@@ -30,13 +30,12 @@ public class MainTest {
         Assert.assertNotNull(cards);
         Assert.assertEquals(cards.get(0).getWord(), "Hello");
 
-        long count = cards.stream().count();
-        LongStream randomNumbers = LongStream.generate(
-                () -> ThreadLocalRandom.current().nextLong(count)
+        int count = cards.size();
+        IntStream randomNumbers = IntStream.generate(
+                () -> ThreadLocalRandom.current().nextInt(count)
             ).limit(count*3);
 
-        randomNumbers.forEach((p) -> log.info("randomCard:"+ cards.stream().skip(p).findFirst().get().getWord() + " - "
-                + cards.stream().skip(p).findFirst().get().getTranslate() ));
+        randomNumbers.forEach((p) -> log.info("randomCard : " + cards.get(p).getWord() + " - " + cards.get(p).getTranslate()));
 
     }
 
