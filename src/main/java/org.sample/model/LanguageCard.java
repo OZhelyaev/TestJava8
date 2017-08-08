@@ -34,4 +34,5 @@ public class LanguageCard {
     public void setTranslate(List<String> translate) {
         this.translate = translate;
     }
+
 }
