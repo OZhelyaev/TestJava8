@@ -55,6 +55,7 @@ public class MainTest {
     @Test
     public void printRandomCards() {
         int count = cards.size();
+        //stream
         IntStream randomNumbers = IntStream.generate(
                 () -> rnd.apply(count)).limit(count*3);
         //  full test list
@@ -84,6 +85,4 @@ public class MainTest {
                 Assert.assertFalse("compareRandomCards FALSE test", compateTo.apply(lc1, lc2));
         }
     }
-
-
 }
